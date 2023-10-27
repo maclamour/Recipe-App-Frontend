@@ -4,6 +4,7 @@ import "./App.css"
 import { FormEvent, useState } from "react"
 import * as API from './API';
 import { Recipe } from "./types";
+import RecipeCard from "./components/RecipeCard";
 
 const App = () => {
   const [searchTerm, setsSearchTerm] = useState<string>("");
@@ -34,12 +35,7 @@ const App = () => {
         <button type='submit'>Submit</button>
       </form>
       {recipes.map((recipe) =>(
-        <div>
-          recipe title: {recipe.title}
-          recipe image location: {recipe.image}
-          recipe title: {recipe.title}
-
-        </div>
+        <RecipeCard recipe={recipe} />
       ))}
     </div>
   )
