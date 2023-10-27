@@ -1,15 +1,17 @@
 // import React from "react";
+
 import "./App.css"
 import { useState } from "react"
-import { searchRecipes } from '../../backend/src/recipeAPI';
+import * as API from './API';
 
 const App = () => {
   const [searchTerm, setsSearchTerm] = useState("burgers");
-  const [recipes, setResipes] = useState([])
+  const [recipes, setRecipes] = useState([])
 
   const handleSearchSubmit =async () => {
     try {
-      const recipes = await api.searchRecipes(searchTerm,1);
+      const recipes = await API.searchRecipes(searchTerm,1);
+      setRecipes(recipes);
       
     } catch (error) {
       console.log(error);
@@ -18,7 +20,15 @@ const App = () => {
   }
 
   return(
-    <div> Hello from recipe App</div>
+    <div>
+      {recipes.map((recipe) =>(
+        <div>
+          recipe image location: {recipe.image}
+          recipe title: {recipe.title}
+
+        </div>
+      ))}
+    </div>
   )
 }
 
