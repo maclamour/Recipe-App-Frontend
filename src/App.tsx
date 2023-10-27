@@ -3,10 +3,11 @@
 import "./App.css"
 import { useState } from "react"
 import * as API from './API';
+import { Recipe } from "./types";
 
 const App = () => {
   const [searchTerm, setsSearchTerm] = useState("burgers");
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState<Recipe[]>([])
 
   const handleSearchSubmit =async () => {
     try {
@@ -21,8 +22,12 @@ const App = () => {
 
   return(
     <div>
+      <form onSubmit={() => handleSearchSubmit()}>
+        <button type='submit'>Submit</button>
+      </form>
       {recipes.map((recipe) =>(
         <div>
+          recipe title: {recipe.title}
           recipe image location: {recipe.image}
           recipe title: {recipe.title}
 
