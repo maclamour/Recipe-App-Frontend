@@ -6,14 +6,14 @@ import * as API from './API';
 import { Recipe } from "./types";
 
 const App = () => {
-  const [searchTerm, setsSearchTerm] = useState("pasta");
+  const [searchTerm, setsSearchTerm] = useState("burger");
   const [recipes, setRecipes] = useState<Recipe[]>([])
 
   const handleSearchSubmit =async (event: FormEvent) => {
     event.preventDefault()
     try {
       const recipes = await API.searchRecipes(searchTerm,1);
-      setRecipes(recipes);
+      setRecipes(recipes.results);
       
     } catch (error) {
       console.log(error);
