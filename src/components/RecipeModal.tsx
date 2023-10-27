@@ -16,4 +16,4 @@ const RecipeModal = () => {
 };
 
 
-export default RecipeModal
+export default RecipeModal 
