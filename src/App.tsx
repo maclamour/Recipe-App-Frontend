@@ -59,7 +59,10 @@ const App = () => {
       className="view-more-button"
       onClick={handleViewMoreClick}
       >View More</button>
-      {selectedRecipe ? <RecipeModal recipeId={selectedRecipe.id.toString()}/> : null}
+      {selectedRecipe ? (<RecipeModal recipeId={selectedRecipe.id.toString()}
+      onClose ={() => setSelectedRecipe(undefined)}
+      />
+      ) : null}
     </div>
   );
 };
