@@ -1,11 +1,26 @@
 import { useEffect, useState } from "react";
 import { RecipeSummary } from "../types";
+import * as RecipeAPI from '../API';
 
-const RecipeModal = () => {
+interface Props{
+  recipeId: string
+}
+
+const RecipeModal = ({ recipeId }: Props) => {
 
   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
 
-  // useEffect(())
+  useEffect(() => {
+    const fetchRecipeSummary =async () => {
+      try {
+        const summary = await RecipeAPI.getRecipeSummary(recipeId);
+        setRecipeSummary(summary)        
+      } catch (error) {
+        console.log(error);        
+      }
+    };
+    fetchRecipeSummary();
+  }, [recipeId]);
 
   if (!recipeSummary){
     return <></>

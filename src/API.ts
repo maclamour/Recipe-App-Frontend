@@ -1,4 +1,4 @@
-// import { searchRecipes } from '../../backend/src/recipeAPI';
+// import { searchRecipes, getRecipeSummary } from '../../backend/src/recipeAPI';
 
 
 const searchRecipes =async (searchTerm:string, page: number) => {
@@ -16,4 +16,14 @@ const searchRecipes =async (searchTerm:string, page: number) => {
     
 };
 
-export { searchRecipes};
+const getRecipeSummary = async (recipeId: string) => {
+    const url = new URL(`http://localhost:5500/api/recipes/${recipeId}/summary`);
+    const response = await fetch(url)
+    
+    if(!response.ok){
+        throw new Error(`HTTP error Status: ${response.status}`)
+    }
+    return response.json();
+};
+
+export { searchRecipes,getRecipeSummary };
