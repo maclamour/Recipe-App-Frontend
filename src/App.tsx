@@ -56,7 +56,16 @@ const App = () => {
       console.log(error);
       
     }
-  }
+  };
+
+  const addFavoriteRecipe = async (recipe: Recipe) => {
+    try {
+      await API.addFavoriteRecipe(recipe)
+      setFavoriteRecipes([...favoriteRecipes,recipe])  
+    } catch (error) {
+      console.log(error);  
+    }
+  };
 
   return(
     <div>

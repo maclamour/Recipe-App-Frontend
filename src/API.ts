@@ -1,5 +1,7 @@
 // import { searchRecipes, getRecipeSummary, getFavoriteRecipesByIds } from '../../backend/src/recipeAPI';
 
+import { Recipe } from "./types";
+
 
 const searchRecipes =async (searchTerm:string, page: number) => {
     const baseUrl = new URL("http://localhost:5500/api/recipes/search");
@@ -38,4 +40,23 @@ const getFavoriteRecipes =async () => {
     
 }
 
-export { searchRecipes,getRecipeSummary, getFavoriteRecipes };
+const addFavoriteRecipe =async (recipe:Recipe) => {
+    const url = new URL('http://localhost:5500/api/recipes/favorite');
+    const body = {
+        recipeId: recipe.id
+    }
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body),
+    });
+
+    if(!response.ok){
+        throw new Error('Failed to save favorite');
+    }
+};
+
+export { searchRecipes,getRecipeSummary, getFavoriteRecipes,addFavoriteRecipe };
