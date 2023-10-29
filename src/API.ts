@@ -40,12 +40,11 @@ const getFavoriteRecipes =async () => {
     
 }
 
-const addFavoriteRecipe =async (recipe:Recipe) => {
+const addFavoriteRecipe =async (recipe: Recipe) => {
     const url = new URL('http://localhost:5500/api/recipes/favorite');
     const body = {
         recipeId: recipe.id
     }
-
     const response = await fetch(url, {
         method: 'POST',
         headers: {

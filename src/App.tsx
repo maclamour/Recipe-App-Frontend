@@ -98,7 +98,9 @@ const App = () => {
         {favoriteRecipes.map((recipe)=>(
           <RecipeCard
           recipe={recipe}
-          onClick={() => setSelectedRecipe(recipe)}/>  
+          onClick={() => setSelectedRecipe(recipe)}
+          onFavoriteButtonClick={() => undefined}
+          />  
         ))}
 
       </div> )}
