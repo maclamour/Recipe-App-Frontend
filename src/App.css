@@ -33,5 +33,10 @@
     padding: 2em;
     border-radius: 4px;
     max-width: 500px;
+}
 
+.tabs {
+    display: flex;
+    gap: 2em;
+    cursor: pointer;
 }
