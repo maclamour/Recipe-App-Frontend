@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
 import { RecipeSummary } from "../types";
-import * as RecipeAPI from '../API';
+import * as RecipeAPI from "../API";
 
-interface Props{
-  recipeId: string
+interface Props {
+  recipeId: string;
   onClose: () => void;
 }
 
 const RecipeModal = ({ recipeId, onClose }: Props) => {
-
   const [recipeSummary, setRecipeSummary] = useState<RecipeSummary>();
 
   useEffect(() => {
-    const fetchRecipeSummary =async () => {
+    const fetchRecipeSummary = async () => {
       try {
         const summary = await RecipeAPI.getRecipeSummary(recipeId);
-        setRecipeSummary(summary)        
+        setRecipeSummary(summary);
       } catch (error) {
-        console.log(error);        
+        console.log(error);
       }
     };
     fetchRecipeSummary();
   }, [recipeId]);
 
-  if (!recipeSummary){
-    return <></>
+  if (!recipeSummary) {
+    return <></>;
   }
 
   return (
@@ -34,14 +33,15 @@ const RecipeModal = ({ recipeId, onClose }: Props) => {
         <div className="modal-content">
           <div className="modal-header">
             <h2>{recipeSummary?.title}</h2>
-            <span className="close-btn" onClick={onClose}>&times;</span>
+            <span className="close-btn" onClick={onClose}>
+              &times;
+            </span>
           </div>
-          <p dangerouslySetInnerHTML={{__html: recipeSummary?.summary}}></p>
+          <p dangerouslySetInnerHTML={{ __html: recipeSummary?.summary }}></p>
         </div>
       </div>
     </>
   );
 };
 
-
-export default RecipeModal 
+export default RecipeModal;
