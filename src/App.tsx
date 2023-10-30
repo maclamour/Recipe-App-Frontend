@@ -102,7 +102,7 @@ const App = () => {
                 recipe={recipe}
                 onClick={() => setSelectedRecipe(recipe)}
                 onFavoriteButtonClick={
-                  isFavorite ? addFavoriteRecipe : removeFavoriteRecipe}
+                  isFavorite ? removeFavoriteRecipe : addFavoriteRecipe}
                 isFavorite={isFavorite}
               />
             );
