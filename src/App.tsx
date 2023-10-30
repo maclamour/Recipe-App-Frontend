@@ -75,7 +75,12 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="app-container">
+      <div className="header">
+        {/* <img src="/foodie-image.jpg" alt="Foodie"></img> */}
+        <div className="title">Recipe App</div>
+
+      </div>
       <div className="tabs">
         <h1 onClick={() => setSelectedTab("search")}> Recipe Search </h1>
         <h1 onClick={() => setSelectedTab("favorites")}> Favorites </h1>
