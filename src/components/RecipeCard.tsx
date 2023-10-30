@@ -1,3 +1,4 @@
+
 import { Recipe } from "../types"
 import {AiOutlineHeart} from 'react-icons/ai';
 
@@ -22,7 +23,8 @@ const RecipeCard = ({ recipe, onClick, onFavoriteButtonClick }: Props) => {
             </div>
         </div>
     )
-
 }
+
+
 
 export default RecipeCard;
