@@ -6,6 +6,7 @@ import * as API from "./API";
 import { Recipe } from "./types";
 import RecipeCard from "./components/RecipeCard";
 import RecipeModal from "./components/RecipeModal";
+import { AiOutlineSearch } from "react-icons/ai";
 
 type Tabs = "search" | "favorites";
 
@@ -77,13 +78,21 @@ const App = () => {
   return (
     <div className="app-container">
       <div className="header">
-        {/* <img src="/foodie-image.jpg" alt="Foodie"></img> */}
+        <img src="/foodie.jpg" alt="Foodie"></img>
         <div className="title">Recipe App</div>
 
       </div>
       <div className="tabs">
-        <h1 onClick={() => setSelectedTab("search")}> Recipe Search </h1>
-        <h1 onClick={() => setSelectedTab("favorites")}> Favorites </h1>
+        <h1
+        className={selectedTab ==="search" ? "tab-active" : ""} 
+        onClick={() => setSelectedTab("search")}> 
+        Recipe Search 
+        </h1>
+        <h1
+        className={selectedTab ==="favorites" ? "tab-active" : ""} 
+        onClick={() => setSelectedTab("favorites")}> 
+        Favorites 
+        </h1>
       </div>
       {selectedTab === "search" && (
         <>
@@ -95,13 +104,15 @@ const App = () => {
               value={searchTerm}
               onChange={(event) => setsSearchTerm(event.target.value)}
             ></input>
-            <button type="submit">Submit</button>
+            <button type="submit">
+              <AiOutlineSearch size= {40}/> 
+            </button>
           </form>
+          <div className="recipe-grid">
           {recipes.map((recipe) => {
             const isFavorite = favoriteRecipes.some(
               (favRecipe) => recipe.id === favRecipe.id
             );
-
             return (
               <RecipeCard
                 recipe={recipe}
@@ -112,6 +123,8 @@ const App = () => {
               />
             );
           })}
+          </div>
+
           <button className="view-more-button" onClick={handleViewMoreClick}>
             View More
           </button>
@@ -119,7 +132,7 @@ const App = () => {
       )}
 
       {selectedTab === "favorites" && (
-        <div>
+        <div className="recipe-grid">
           {favoriteRecipes.map((recipe) => (
             <RecipeCard
               recipe={recipe}
