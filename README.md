@@ -1,27 +1,23 @@
-# React + TypeScript + Vite
+# Recipe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Recipe App Screenshot](https://i.imgur.com/fivoN66l.png)
 
-Currently, two official plugins are available:
+A simple, elegant, and user-friendly recipe application to keep track of and showcase your favorite recipes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **View Recipes:** Browse through a list of your favorite recipes with a clear and concise layout.
+- **Add New Recipes:** Easily add new recipes with steps, ingredients, and images.
+- **Search & Filter:** Quickly find the recipes you're looking for with a search bar and category filters.
+- **Responsive Design:** Fully responsive design that looks great on mobile, tablets, and desktop.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting Started
 
-- Configure the top-level `parserOptions` property like this:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+### Prerequisites
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Node.js
+- npm or yarn (whichever you prefer)
+
+### Installation
