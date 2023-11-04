@@ -1,5 +1,12 @@
 # Recipe App
 
+## Code
+
+- **Live Demo:** https://recipe-app-jkx7.onrender.com/
+- **Backend Code:** https://github.com/maclamour/Recipe-App-backend
+
+
+
 ![Recipe App Screenshot](https://i.imgur.com/fivoN66l.png)
 
 A simple, elegant, and user-friendly recipe application to keep track of and showcase your favorite recipes.
